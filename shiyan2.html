@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jquery/jquery-1.10.1.min.js"></script>-->
+</head>
+<body>
+<div class="adParam">
+    <div id="ad">
+        <!--<img src="img/context1.png"/>-->
+        <!--<img src="img/context2.png"/>-->
+        <!--<img src="img/context1.png"/>-->
+        <!--<img src="img/context2.png"/>-->
+    </div>
+</div>
+
+<style>
+
+
+    .adParam {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 5px;
+
+    }
+
+    /*.ad{*/
+    /*width:calc(500px*4);*/
+    /*animation: move 10s infinite alternate;*/
+    /*}*/
+
+    .img {
+        float: left;
+        width: 500px;
+        height: 300px;
+    }
+
+    /*@keyframes move {*/
+    /*0%,25%{*/
+    /*margin-left: 0px;*/
+    /*}*/
+    /*30%,50%{*/
+    /*margin-left: -500px;*/
+    /*}*/
+    /*55%,75%{*/
+    /*margin-left: -1000px;*/
+    /*}*/
+    /*80%,100%{*/
+    /*margin-left: -1500px;*/
+    /*}*/
+    /*}*/
+
+</style>
+
+<script>
+    var ad = document.getElementById("ad");
+    var i = 4;
+    var unitWidth = 500;
+    addImg();
+    setWidth();
+
+
+    function addImg() {
+        for (var a = 0; a < i; a++) {
+            if (a % 2 == 0)
+                ad.innerHTML += '<img class="img" src="img/context1.png"/>'
+            else
+                ad.innerHTML += '<img class="img" src="img/context2.png"/>'
+        }
+    }
+
+    function setWidth() {
+
+        ad.style.width = i * unitWidth + 'px';
+
+
+        this.stylesheet = document.styleSheets[document.styleSheets.length - 1];
+        this.stylesheet.insertRule(getAnim());
+
+        ad.style.animation = "move 10s infinite alternate ";
+    }
+
+
+    function getAnim() {
+        var animTotal = i * 3;
+        var a2 = (100 - animTotal) / 4;
+
+        var rule = " @keyframes move { ";
+        for (var a = 0; a < i; a++) {
+            if (a + 1 == i) {
+                rule += (a * a2 + a * 5) + "%,100%{margin-left: -" + a * unitWidth + "px;} "
+            } else {
+                rule += (a * a2 + a * 5) + "%," + ((a + 1) * a2 + a * 5) + "%{margin-left: -" + a * unitWidth + "px;} "
+            }
+
+
+            console.log("rule:" + rule);
+        }
+
+        rule += " } ";
+
+        console.log("rule1:" + rule);
+
+        return rule;
+    }
+
+
+</script>
+
+</body>
+</html>
