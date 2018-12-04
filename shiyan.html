@@ -1,53 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <style type="text/css">
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        div.d1 {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+
+        position: absolute;
+        left: 20px;
+        }
+
+        div.d3 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+
+            /*  position: absolute;
+              left:50px;
+              这块注释取消 会看到 绝对定位 不是相对于 叔辈元素，而且会绝对定位会删除原本占据的位置。
+              */
+        }
+        div.d2 {
+        width: 50px;
+        height: 50px;
+        background-color: chartreuse;
+
+        }
+
+
+        h2.pos_abs {
+            position: absolute;
+            left: 0px;
+            top: 0px
+        }
+
+
+
+
+    </style>
 </head>
+
 <body>
 
-<div class="context">
-    <ol>
-        <li class="img1"><img src="img/context1.png"></li>
-        <li class="img2"><img src="img/context2.png"></li>
-    </ol>
+<div class="d1">
+    <div class="d3">
+
+    </div>
+    <div class="d2">
+        <h2 class="pos_abs">aaaaaaaaaa</h2>
+    </div>
+
 
 </div>
 
 
-<style>
-    body{
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .context{
-
-    }
-
-
-    ol{
-        list-style: none;
-        /*width: 300px;*/
-        /*height: 200px;*/
-    }
-
-    li{
-        position: absolute;
-        width: 500px;
-        height: 300px;
-        /*width: 300px;*/
-        /*height: 200px;*/
-        float: left;
-    }
-    img{
-        width: 500px;
-        height: 300px;
-    }
-
-    .img1{
-        left:500px
-    }
-</style>
 </body>
+
 </html>
